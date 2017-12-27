@@ -5,5 +5,9 @@ exports.currentUser = (req, res) => {
 
 exports.logout = (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect("/");
+}
+
+exports.login = (req, res) => {
+    res.redirect("/notes");
 }
