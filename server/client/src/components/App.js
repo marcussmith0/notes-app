@@ -7,8 +7,8 @@ import * as actions from '../actions';
 import Header from './Header';
 import SignIn from './SignIn';
 import Landing from './Landing';
-const Dashboard = () => <h2>Dashboard</h2>
-const NewNote = () => <h2>NoteNew</h2>
+import Dashboard from './Dashboard';
+import SimpleNote from './Notes/SimpleNote';
 
 class App extends Component {
     componentDidMount() {
@@ -17,14 +17,16 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
                 <BrowserRouter>
-                <div>
+                <div className="container">
                     <Header />
-                    <Route exact path="/" component={Landing} />
-                    <Route exact path="/notes" component={Dashboard} />
-                    <Route path="/signin" component={SignIn} />
-                    <Route path="/new/note" component={NewNote} />
+                    <div>
+                        <Route exact path="/" component={Landing} />
+                        <Route exact path="/notes" component={Dashboard} />
+                        <Route path="/signin" component={SignIn} />
+                        <Route path="/new/simplenote" component={SimpleNote} />
+                    </div>
                 </div>
                 </BrowserRouter>
             </div>

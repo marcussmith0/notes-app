@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const SimpleNote = mongoose.model("simplenote");
+const SimpleNote = mongoose.model("simplenotes");
 
 exports.newSimpleNote = async (req, res) => {
 
@@ -10,6 +10,6 @@ exports.newSimpleNote = async (req, res) => {
         _creator: req.user.id
     }).save();
 
-    const user = req.user.save()
+    const user = await req.user.save()
     res.send(user);
 }
